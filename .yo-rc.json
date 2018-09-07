@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ar.edu.um.ingenieria_aplicada.microblogging",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "5.2.1",
+    "applicationType": "monolith",
+    "baseName": "Microblogging",
+    "packageName": "ar.edu.um.ingenieria_aplicada.microblogging",
+    "packageFolder": "ar/edu/um/ingenieria_aplicada/microblogging",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "rememberMeKey": "408f9d255d526a0e742f7a2444893110ec5ca31b",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": [
+      "es"
+    ]
+  }
+}
