@@ -40,6 +40,16 @@ public class CacheConfiguration {
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Usuario.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Usuario.class.getName() + ".publicas", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Usuario.class.getName() + ".likeas", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Usuario.class.getName() + ".sigues", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Usuario.class.getName() + ".bloqueas", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Tag.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Tag.class.getName() + ".tageas", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publicacion.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publicacion.class.getName() + ".mencionas", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publicacion.class.getName() + ".esFavs", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -32,9 +32,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/Microblogging?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
-        password:
+        url: jdbc:mysql://mymicrobologging.mysql.database.azure.com:3306/microblogging?useSSL=true&requireSSL=false
+        username: umadmin@mymicrobologging
+        password: Umendoza2018!
         hikari:
             data-source-properties:
                 cachePrepStmts: true

@@ -1,0 +1,38 @@
+entity Usuario {
+	nombre String
+}
+
+entity Tag {
+	etiqueta String
+    ultimoUso Instant
+}
+
+entity Publicacion {
+	fecha Instant
+    contenido String
+    visibilidad Boolean
+    pais String
+    ciudad String
+}
+
+relationship ManyToMany {
+	Publicacion{menciona} to Usuario
+	Publicacion{esFav} to Usuario
+	Usuario{likea} to Publicacion
+	Usuario{sigue} to Usuario
+	Usuario{bloquea} to Usuario
+	Tag{tagea} to Publicacion
+}
+
+
+relationship OneToMany {
+  Usuario{publica} to Publicacion
+}
+
+relationship OneToOne {
+	Publicacion{republicacionDe} to Publicacion
+}
+
+// Set pagination options
+paginate Publicacion with infinite-scroll
+paginate Usuario, Tag with pagination

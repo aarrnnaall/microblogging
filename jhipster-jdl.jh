@@ -1,0 +1,56 @@
+entity Usuario {
+    nombre String
+    apellido String
+    user String required
+    password String
+    email String required
+}
+
+entity Publicaciones {
+    user_emi String
+    fecha Date
+    contenido String required
+    cant_visibilidades Int
+    language Language    
+    cant_like Int
+    dest String
+}
+entity Tag {
+    etiqueta String
+    uso_ult Date
+    }
+
+relationship OneToMany {
+    Usuario{sigue(user)} to Usuario
+    Usuario{bloquea(user)} to Usuario
+}
+
+relationship OneToOne {
+    Publicaciones{re_publicar} to Publicaciones
+    
+}
+
+
+relationship OneToMany {
+    Usuario{publica} to Publicaciones
+    Usuario{megusta} to Publicaciones
+    Usuario{publicacion_fav} to Publicaciones
+        
+}
+relationship OneToMany {
+    Publicaciones{tagear(etiqueta)} to Tag
+    
+}
+relationship OneToMany {
+    Publicaciones{mencionar(dest)} to Usuario
+    
+}
+relationship OneToMany {
+    Publicaciones{visible(user)} to Usuario
+    
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+

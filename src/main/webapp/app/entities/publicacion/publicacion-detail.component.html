@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="publicacion">
+            <h2><span jhiTranslate="microbloggingApp.publicacion.detail.title">Publicacion</span> {{publicacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="microbloggingApp.publicacion.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{publicacion.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{publicacion.contenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.visibilidad">Visibilidad</span></dt>
+                <dd>
+                    <span>{{publicacion.visibilidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.pais">Pais</span></dt>
+                <dd>
+                    <span>{{publicacion.pais}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.ciudad">Ciudad</span></dt>
+                <dd>
+                    <span>{{publicacion.ciudad}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.usuario">Usuario</span></dt>
+                <dd>
+                    <div *ngIf="publicacion.usuario">
+                        <a [routerLink]="['/usuario', publicacion.usuario?.id, 'view']">{{publicacion.usuario?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.republicacionDe">Republicacion De</span></dt>
+                <dd>
+                    <div *ngIf="publicacion.republicacionDe">
+                        <a [routerLink]="['/publicacion', publicacion.republicacionDe?.id, 'view']">{{publicacion.republicacionDe?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.menciona">Menciona</span></dt>
+                <dd>
+                    <span *ngFor="let menciona of publicacion.mencionas; let last = last">
+                        <a [routerLink]="['/usuario', menciona?.id, 'view' ]">{{menciona.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publicacion.esFav">Es Fav</span></dt>
+                <dd>
+                    <span *ngFor="let esFav of publicacion.esFavs; let last = last">
+                        <a [routerLink]="['/usuario', esFav?.id, 'view' ]">{{esFav.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/publicacion', publicacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
