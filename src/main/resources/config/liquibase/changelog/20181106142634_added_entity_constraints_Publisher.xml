@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Publisher.
+    -->
+    <changeSet id="20181106142634-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="is_id"
+                                 baseTableName="publisher"
+                                 constraintName="fk_publisher_is_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="publishers_id"
+                                 baseTableName="publisher_mentioned_by"
+                                 constraintName="fk_publisher_mentioned_by_publishers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publisher"/>
+        <addForeignKeyConstraint baseColumnNames="mentioned_bies_id"
+                                 baseTableName="publisher_mentioned_by"
+                                 constraintName="fk_publisher_mentioned_by_mentioned_bies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publication"/>
+        
+        <addForeignKeyConstraint baseColumnNames="publishers_id"
+                                 baseTableName="publisher_followed_by"
+                                 constraintName="fk_publisher_followed_by_publishers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publisher"/>
+        <addForeignKeyConstraint baseColumnNames="followed_bies_id"
+                                 baseTableName="publisher_followed_by"
+                                 constraintName="fk_publisher_followed_by_followed_bies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publisher"/>
+        
+    </changeSet>
+</databaseChangeLog>

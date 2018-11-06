@@ -1,0 +1,34 @@
+entity Publisher{
+
+}
+
+entity Tag {
+	name String
+    lastUse LocalDate
+}
+
+entity Publication {
+	date LocalDate
+    content String
+    visible Boolean
+    country String
+    city String
+}
+
+relationship ManyToMany {
+	Publisher{mentionedBy} to Publication{mention}
+	Publication{favedBy} to Publisher
+	Publication{likedBy} to Publisher
+	Publisher{followedBy} to Publisher{follow}
+	Publication{taggedBy} to Tag{tag}
+}
+
+
+relationship OneToMany {
+  Publisher{publication} to Publication{publisher}
+}
+
+relationship OneToOne {
+	Publisher{is} to User
+	Publication{republishedBy} to Publication
+}

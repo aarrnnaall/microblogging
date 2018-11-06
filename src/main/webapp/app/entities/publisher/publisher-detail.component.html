@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="publisher">
+            <h2><span jhiTranslate="microbloggingApp.publisher.detail.title">Publisher</span> {{publisher.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="microbloggingApp.publisher.is">Is</span></dt>
+                <dd>
+                    {{publisher.is?.id}}
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publisher.mentionedBy">Mentioned By</span></dt>
+                <dd>
+                    <span *ngFor="let mentionedBy of publisher.mentionedBies; let last = last">
+                        <a [routerLink]="['/publication', mentionedBy?.id, 'view' ]">{{mentionedBy.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publisher.followedBy">Followed By</span></dt>
+                <dd>
+                    <span *ngFor="let followedBy of publisher.followedBies; let last = last">
+                        <a [routerLink]="['/publisher', followedBy?.id, 'view' ]">{{followedBy.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/publisher', publisher.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

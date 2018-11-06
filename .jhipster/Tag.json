@@ -2,28 +2,27 @@
     "name": "Tag",
     "fields": [
         {
-            "fieldName": "etiqueta",
+            "fieldName": "name",
             "fieldType": "String"
         },
         {
-            "fieldName": "ultimoUso",
-            "fieldType": "Instant"
+            "fieldName": "lastUse",
+            "fieldType": "LocalDate"
         }
     ],
     "relationships": [
         {
             "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "",
-            "relationshipName": "tagea",
-            "otherEntityName": "publicacion",
-            "otherEntityField": "id",
-            "ownerSide": true
+            "relationshipName": "tag",
+            "otherEntityName": "publication",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "taggedBy"
         }
     ],
     "changelogDate": "20181011212925",
     "entityTableName": "tag",
     "dto": "no",
-    "pagination": "pagination",
+    "pagination": "no",
     "service": "no",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,

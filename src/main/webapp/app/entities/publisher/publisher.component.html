@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="microbloggingApp.publisher.home.title">Publishers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-publisher" [routerLink]="['/publisher/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="microbloggingApp.publisher.home.createLabel">
+            Create new Publisher
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="publishers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="microbloggingApp.publisher.is">Is</span></th>
+            <th><span jhiTranslate="microbloggingApp.publisher.mentionedBy">Mentioned By</span></th>
+            <th><span jhiTranslate="microbloggingApp.publisher.followedBy">Followed By</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let publisher of publishers ;trackBy: trackId">
+                <td><a [routerLink]="['/publisher', publisher.id, 'view' ]">{{publisher.id}}</a></td>
+                <td>
+                    {{publisher.is?.id}}
+                </td>
+                <td>
+                    <span *ngFor="let mentionedBy of publisher.mentionedBies; let last = last">
+                            <a class="form-control-static" [routerLink]="['../publication', mentionedBy?.id, 'view' ]">{{mentionedBy.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let followedBy of publisher.followedBies; let last = last">
+                            <a class="form-control-static" [routerLink]="['../publisher', followedBy?.id, 'view' ]">{{followedBy.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/publisher', publisher.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/publisher', publisher.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'publisher/'+ publisher.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

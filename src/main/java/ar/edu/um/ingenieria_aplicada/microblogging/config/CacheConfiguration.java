@@ -40,6 +40,18 @@ public class CacheConfiguration {
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publisher.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publisher.class.getName() + ".publications", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publisher.class.getName() + ".mentionedBies", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publisher.class.getName() + ".followedBies", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publisher.class.getName() + ".follows", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Tag.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Tag.class.getName() + ".tags", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publication.class.getName(), jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publication.class.getName() + ".favedBies", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publication.class.getName() + ".likedBies", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publication.class.getName() + ".taggedBies", jcacheConfiguration);
+            cm.createCache(ar.edu.um.ingenieria_aplicada.microblogging.domain.Publication.class.getName() + ".mentions", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

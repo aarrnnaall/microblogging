@@ -1,0 +1,92 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="microbloggingApp.publication.home.title">Publications</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-publication" [routerLink]="['/publication/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="microbloggingApp.publication.home.createLabel">
+            Create new Publication
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="publications">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.date">Date</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.content">Content</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.visible">Visible</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.country">Country</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.city">City</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.republishedBy">Republished By</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.favedBy">Faved By</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.likedBy">Liked By</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.taggedBy">Tagged By</span></th>
+            <th><span jhiTranslate="microbloggingApp.publication.publisher">Publisher</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let publication of publications ;trackBy: trackId">
+                <td><a [routerLink]="['/publication', publication.id, 'view' ]">{{publication.id}}</a></td>
+                <td>{{publication.date | date:'mediumDate'}}</td>
+                <td>{{publication.content}}</td>
+                <td>{{publication.visible}}</td>
+                <td>{{publication.country}}</td>
+                <td>{{publication.city}}</td>
+                <td>
+                    <div *ngIf="publication.republishedBy">
+                        <a [routerLink]="['../publication', publication.republishedBy?.id, 'view' ]" >{{publication.republishedBy?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let favedBy of publication.favedBies; let last = last">
+                            <a class="form-control-static" [routerLink]="['../publisher', favedBy?.id, 'view' ]">{{favedBy.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let likedBy of publication.likedBies; let last = last">
+                            <a class="form-control-static" [routerLink]="['../publisher', likedBy?.id, 'view' ]">{{likedBy.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let taggedBy of publication.taggedBies; let last = last">
+                            <a class="form-control-static" [routerLink]="['../tag', taggedBy?.id, 'view' ]">{{taggedBy.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="publication.publisher">
+                        <a [routerLink]="['../publisher', publication.publisher?.id, 'view' ]" >{{publication.publisher?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/publication', publication.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/publication', publication.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'publication/'+ publication.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
