@@ -25,11 +25,19 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "republishedBy",
+            "relationshipName": "republish",
             "otherEntityName": "publication",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "publication"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "mention",
+            "otherEntityName": "publisher",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "many-to-many",
@@ -49,8 +57,8 @@
         },
         {
             "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "tag",
-            "relationshipName": "taggedBy",
+            "otherEntityRelationshipName": "publication",
+            "relationshipName": "tag",
             "otherEntityName": "tag",
             "otherEntityField": "id",
             "ownerSide": true
@@ -60,13 +68,6 @@
             "relationshipName": "publisher",
             "otherEntityName": "publisher",
             "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-many",
-            "relationshipName": "mention",
-            "otherEntityName": "publisher",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "mentionedBy"
         }
     ],
     "changelogDate": "20181106142636",

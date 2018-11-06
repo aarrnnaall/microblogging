@@ -13,10 +13,10 @@
     "relationships": [
         {
             "relationshipType": "many-to-many",
-            "relationshipName": "tag",
+            "relationshipName": "publication",
             "otherEntityName": "publication",
             "ownerSide": false,
-            "otherEntityRelationshipName": "taggedBy"
+            "otherEntityRelationshipName": "tag"
         }
     ],
     "changelogDate": "20181011212925",

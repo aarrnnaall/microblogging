@@ -1,0 +1,32 @@
+
+{
+    "microbloggingApp": {
+        "publication" : {
+            "home": {
+                "title": "Publications",
+                "createLabel": "Crear nuevo Publication",
+                "createOrEditLabel": "Crear o editar Publication"
+            },
+            "created": "Un nuevo Publication ha sido creado con el identificador {{ param }}",
+            "updated": "Un Publication ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Publication ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Publication {{ id }}?"
+            },
+            "detail": {
+                "title": "Publication"
+            },
+            "date": "Date",
+            "content": "Content",
+            "visible": "Visible",
+            "country": "Country",
+            "city": "City",
+            "republish": "Republish",
+            "mention": "Mention",
+            "favedBy": "Faved By",
+            "likedBy": "Liked By",
+            "tag": "Tag",
+            "publisher": "Publisher"
+        }
+    }
+}
