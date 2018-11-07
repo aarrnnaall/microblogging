@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="publication">
+            <h2><span jhiTranslate="microbloggingApp.publication.detail.title">Publication</span> {{publication.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="microbloggingApp.publication.date">Date</span></dt>
+                <dd>
+                    <span>{{publication.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.content">Content</span></dt>
+                <dd>
+                    <span>{{publication.content}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.visible">Visible</span></dt>
+                <dd>
+                    <span>{{publication.visible}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.country">Country</span></dt>
+                <dd>
+                    <span>{{publication.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.city">City</span></dt>
+                <dd>
+                    <span>{{publication.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.republish">Republish</span></dt>
+                <dd>
+                    <div *ngIf="publication.republish">
+                        <a [routerLink]="['/publication', publication.republish?.id, 'view']">{{publication.republish?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.mention">Mention</span></dt>
+                <dd>
+                    <span *ngFor="let mention of publication.mentions; let last = last">
+                        <a [routerLink]="['/publisher', mention?.id, 'view' ]">{{mention.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.favedBy">Faved By</span></dt>
+                <dd>
+                    <span *ngFor="let favedBy of publication.favedBies; let last = last">
+                        <a [routerLink]="['/publisher', favedBy?.id, 'view' ]">{{favedBy.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.likedBy">Liked By</span></dt>
+                <dd>
+                    <span *ngFor="let likedBy of publication.likedBies; let last = last">
+                        <a [routerLink]="['/publisher', likedBy?.id, 'view' ]">{{likedBy.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.tag">Tag</span></dt>
+                <dd>
+                    <span *ngFor="let tag of publication.tags; let last = last">
+                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="microbloggingApp.publication.publisher">Publisher</span></dt>
+                <dd>
+                    <div *ngIf="publication.publisher">
+                        <a [routerLink]="['/publisher', publication.publisher?.id, 'view']">{{publication.publisher?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/publication', publication.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

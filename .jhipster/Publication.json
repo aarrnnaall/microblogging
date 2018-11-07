@@ -70,7 +70,11 @@
             "otherEntityField": "id"
         }
     ],
+<<<<<<< HEAD
     "changelogDate": "20181107123723",
+=======
+    "changelogDate": "20181106142636",
+>>>>>>> 3ebc3e788a02df643e5a89d65021c43ce6a5b8c9
     "entityTableName": "publication",
     "dto": "no",
     "pagination": "no",

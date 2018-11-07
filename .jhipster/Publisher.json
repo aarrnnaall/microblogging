@@ -26,6 +26,7 @@
         },
         {
             "relationshipType": "many-to-many",
+<<<<<<< HEAD
             "otherEntityRelationshipName": "",
             "relationshipName": "publication",
             "otherEntityName": "publication",
@@ -34,13 +35,19 @@
         },
         {
             "relationshipType": "many-to-many",
+=======
+>>>>>>> 3ebc3e788a02df643e5a89d65021c43ce6a5b8c9
             "relationshipName": "follower",
             "otherEntityName": "publisher",
             "ownerSide": false,
             "otherEntityRelationshipName": "follow"
         }
     ],
+<<<<<<< HEAD
     "changelogDate": "20181107123721",
+=======
+    "changelogDate": "20181106142634",
+>>>>>>> 3ebc3e788a02df643e5a89d65021c43ce6a5b8c9
     "entityTableName": "publisher",
     "dto": "no",
     "pagination": "no",

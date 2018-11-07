@@ -19,7 +19,11 @@
             "otherEntityRelationshipName": "tag"
         }
     ],
+<<<<<<< HEAD
     "changelogDate": "20181107123722",
+=======
+    "changelogDate": "20181011212925",
+>>>>>>> 3ebc3e788a02df643e5a89d65021c43ce6a5b8c9
     "entityTableName": "tag",
     "dto": "no",
     "pagination": "no",
