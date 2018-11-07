@@ -1,0 +1,52 @@
+{
+    "name": "Publisher",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "publisher"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "publication",
+            "otherEntityName": "publication",
+            "otherEntityRelationshipName": "publisher"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "follower",
+            "relationshipName": "follow",
+            "otherEntityName": "publisher",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "publication",
+            "otherEntityName": "publication",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "follower",
+            "otherEntityName": "publisher",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "follow"
+        }
+    ],
+    "changelogDate": "20181107123721",
+    "entityTableName": "publisher",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
